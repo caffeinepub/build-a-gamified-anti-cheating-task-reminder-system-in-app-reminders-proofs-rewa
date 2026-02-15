@@ -1,0 +1,174 @@
+{
+  "kind": "coverage_report",
+  "version": "1.0",
+  "generatedAt": "2026-02-14T20:15:58.326Z",
+  "sources": {
+    "buildRequest": true,
+    "implementationPlan": true
+  },
+  "requirements": {
+    "total": 7,
+    "implemented": 7,
+    "items": [
+      {
+        "id": "REQ-13",
+        "summary": "Redesign the app’s global visual theme to feel like a mobile game UI (dark, high-contrast, glossy cards, neon accents, soft gradients, and subtle depth), using the uploaded reference image as the primary style guide, and apply it consistently across all pages and dialogs.",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/index.css",
+          "frontend/src/components/auth/ProfileSetupDialog.tsx",
+          "frontend/src/components/tasks/TaskEditorDialog.tsx",
+          "frontend/src/pages/TasksPage.tsx",
+          "frontend/src/pages/RewardsPage.tsx",
+          "frontend/src/pages/LeaderboardPage.tsx",
+          "frontend/src/pages/SettingsPage.tsx"
+        ],
+        "matchedFiles": [
+          "frontend/src/index.css",
+          "frontend/src/components/auth/ProfileSetupDialog.tsx",
+          "frontend/src/components/tasks/TaskEditorDialog.tsx",
+          "frontend/src/pages/TasksPage.tsx",
+          "frontend/src/pages/RewardsPage.tsx",
+          "frontend/src/pages/LeaderboardPage.tsx",
+          "frontend/src/pages/SettingsPage.tsx"
+        ]
+      },
+      {
+        "id": "REQ-14",
+        "summary": "Update global styling tokens (CSS variables / Tailwind theme usage) to support the reference-style dark UI: define a dark-first palette with purple/magenta accents, improved card elevation, borders, and glow states; ensure primary/secondary/destructive/chart colors look consistent with the new game aesthetic.",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/index.css",
+          "frontend/tailwind.config.js"
+        ],
+        "matchedFiles": [
+          "frontend/src/index.css",
+          "frontend/tailwind.config.js"
+        ]
+      },
+      {
+        "id": "REQ-15",
+        "summary": "Redesign the main layout (header + navigation + page container) into a game-like HUD: compact, stylized header; navigation that feels like a game menu; and a content area that uses stacked panels/cards similar to the reference image.",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/components/layout/AppLayout.tsx",
+          "frontend/src/index.css"
+        ],
+        "matchedFiles": [
+          "frontend/src/components/layout/AppLayout.tsx",
+          "frontend/src/index.css"
+        ]
+      },
+      {
+        "id": "REQ-16",
+        "summary": "Redesign the Home page dashboard to match the reference image’s structure and hierarchy: player/profile panel, level/XP progress bar, streak panel, coin panel, and a prominent ‘Today’s Tasks’ section with a strong primary CTA.",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/pages/HomePage.tsx",
+          "frontend/src/index.css"
+        ],
+        "matchedFiles": [
+          "frontend/src/pages/HomePage.tsx",
+          "frontend/src/index.css"
+        ]
+      },
+      {
+        "id": "REQ-17",
+        "summary": "Restyle task presentation components to match the game-like card style: TaskCard, task lists, and task actions should use compact badges, accent chips, and a bold primary action button similar to the reference design.",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/components/tasks/TaskCard.tsx",
+          "frontend/src/pages/TasksPage.tsx",
+          "frontend/src/components/tasks/TaskFiltersBar.tsx",
+          "frontend/src/index.css"
+        ],
+        "matchedFiles": [
+          "frontend/src/components/tasks/TaskCard.tsx",
+          "frontend/src/pages/TasksPage.tsx",
+          "frontend/src/components/tasks/TaskFiltersBar.tsx",
+          "frontend/src/index.css"
+        ]
+      },
+      {
+        "id": "REQ-18",
+        "summary": "Enhance celebratory and progression UI to feel more game-like: restyle reward celebration overlays, progress bars, and badges to match the new aesthetic (glow, depth, and a ‘loot/reward’ feel) while keeping motion respectful of reduced-motion settings.",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/components/rewards/RewardCelebration.tsx",
+          "frontend/src/components/completions/CompleteTaskFlowDialog.tsx",
+          "frontend/src/components/layout/AppLayout.tsx",
+          "frontend/src/index.css"
+        ],
+        "matchedFiles": [
+          "frontend/src/components/rewards/RewardCelebration.tsx",
+          "frontend/src/components/completions/CompleteTaskFlowDialog.tsx",
+          "frontend/src/components/layout/AppLayout.tsx",
+          "frontend/src/index.css"
+        ]
+      },
+      {
+        "id": "REQ-19",
+        "summary": "Add the required generated images as static assets under frontend/public/assets/generated and reference them from the UI where appropriate (do not serve images through the backend).",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/public/assets/generated/mascot.dim_1024x1024.png",
+          "frontend/public/assets/generated/badges-sprite.dim_2048x2048.png",
+          "frontend/public/assets/generated/weekly-chest-closed.dim_1024x1024.png",
+          "frontend/public/assets/generated/weekly-chest-open.dim_1024x1024.png",
+          "frontend/public/assets/generated/avatar-stages.dim_2048x1024.png",
+          "frontend/public/assets/generated/logo-mark.dim_512x512.png",
+          "frontend/src/components/layout/AppLayout.tsx",
+          "frontend/src/pages/HomePage.tsx",
+          "frontend/src/pages/RewardsPage.tsx",
+          "frontend/src/pages/AvatarPage.tsx",
+          "frontend/src/pages/RewardsPage.tsx"
+        ],
+        "matchedFiles": [
+          "frontend/public/assets/generated/mascot.dim_1024x1024.png",
+          "frontend/public/assets/generated/badges-sprite.dim_2048x2048.png",
+          "frontend/public/assets/generated/weekly-chest-closed.dim_1024x1024.png",
+          "frontend/public/assets/generated/weekly-chest-open.dim_1024x1024.png",
+          "frontend/public/assets/generated/avatar-stages.dim_2048x1024.png",
+          "frontend/public/assets/generated/logo-mark.dim_512x512.png",
+          "frontend/src/components/layout/AppLayout.tsx",
+          "frontend/src/pages/HomePage.tsx",
+          "frontend/src/pages/RewardsPage.tsx",
+          "frontend/src/pages/AvatarPage.tsx",
+          "frontend/src/pages/RewardsPage.tsx"
+        ]
+      }
+    ]
+  },
+  "changedFiles": [
+    "build-request.json",
+    "build-template/README.md",
+    "feature_evidence.json",
+    "frontend-file-summaries.txt",
+    "frontend-implementation-plan.json",
+    "frontend/public/assets/generated/avatar-stages.dim_2048x1024.png",
+    "frontend/public/assets/generated/badges-sprite.dim_2048x2048.png",
+    "frontend/public/assets/generated/logo-mark.dim_512x512.png",
+    "frontend/public/assets/generated/mascot.dim_1024x1024.png",
+    "frontend/public/assets/generated/weekly-chest-closed.dim_1024x1024.png",
+    "frontend/public/assets/generated/weekly-chest-open.dim_1024x1024.png",
+    "frontend/src/components/auth/ProfileSetupDialog.tsx",
+    "frontend/src/components/completions/CompleteTaskFlowDialog.tsx",
+    "frontend/src/components/layout/AppLayout.tsx",
+    "frontend/src/components/rewards/RewardCelebration.tsx",
+    "frontend/src/components/tasks/TaskCard.tsx",
+    "frontend/src/components/tasks/TaskEditorDialog.tsx",
+    "frontend/src/components/tasks/TaskFiltersBar.tsx",
+    "frontend/src/index.css",
+    "frontend/src/pages/AvatarPage.tsx",
+    "frontend/src/pages/HomePage.tsx",
+    "frontend/src/pages/LeaderboardPage.tsx",
+    "frontend/src/pages/RewardsPage.tsx",
+    "frontend/src/pages/SettingsPage.tsx",
+    "frontend/src/pages/TasksPage.tsx",
+    "frontend/tailwind.config.js",
+    "project_state.json",
+    "scratch/component-selection.json",
+    "spec.md",
+    "spec_vs_diff_report.json"
+  ]
+}

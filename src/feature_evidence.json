@@ -1,0 +1,163 @@
+{
+  "kind": "feature_evidence_report",
+  "features": [
+    {
+      "featureId": "feature-redesign-the-app-s-global-visual-theme-to-feel-like-a-mobile-game-ui-dark-high-contrast-glossy-cards-neon-accents-soft-gradients-and-subtle-depth-using-the-uploaded-reference-image-as-the-primary-style-guide-and-apply-it-consistently-across-all-pages-and-dialogs",
+      "featureTitle": "Redesign the app’s global visual theme to feel like a mobile game UI (dark, high-contrast, glossy cards, neon accents, soft gradients, and subtle depth), using the uploaded reference image as the primary style guide, and apply it consistently across all pages and dialogs.",
+      "files": [
+        "frontend/src/components/auth/ProfileSetupDialog.tsx",
+        "frontend/src/components/tasks/TaskEditorDialog.tsx",
+        "frontend/src/index.css",
+        "frontend/src/pages/LeaderboardPage.tsx",
+        "frontend/src/pages/RewardsPage.tsx",
+        "frontend/src/pages/SettingsPage.tsx",
+        "frontend/src/pages/TasksPage.tsx"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "blob-storage@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-13"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-update-global-styling-tokens-css-variables-tailwind-theme-usage-to-support-the-reference-style-dark-ui-define-a-dark-first-palette-with-purple-magenta-accents-improved-card-elevation-borders-and-glow-states-ensure-primary-secondary-destructive-chart-colors-look-consistent-with-the-new-game-aesthetic",
+      "featureTitle": "Update global styling tokens (CSS variables / Tailwind theme usage) to support the reference-style dark UI: define a dark-first palette with purple/magenta accents, improved card elevation, borders, and glow states; ensure primary/secondary/destructive/chart colors look consistent with the new game aesthetic.",
+      "files": [
+        "frontend/src/index.css",
+        "frontend/tailwind.config.js"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "blob-storage@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-14"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-redesign-the-main-layout-header-navigation-page-container-into-a-game-like-hud-compact-stylized-header-navigation-that-feels-like-a-game-menu-and-a-content-area-that-uses-stacked-panels-cards-similar-to-the-reference-image",
+      "featureTitle": "Redesign the main layout (header + navigation + page container) into a game-like HUD: compact, stylized header; navigation that feels like a game menu; and a content area that uses stacked panels/cards similar to the reference image.",
+      "files": [
+        "frontend/src/components/layout/AppLayout.tsx",
+        "frontend/src/index.css"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "blob-storage@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-15"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-redesign-the-home-page-dashboard-to-match-the-reference-image-s-structure-and-hierarchy-player-profile-panel-level-xp-progress-bar-streak-panel-coin-panel-and-a-prominent-today-s-tasks-section-with-a-strong-primary-cta",
+      "featureTitle": "Redesign the Home page dashboard to match the reference image’s structure and hierarchy: player/profile panel, level/XP progress bar, streak panel, coin panel, and a prominent ‘Today’s Tasks’ section with a strong primary CTA.",
+      "files": [
+        "frontend/src/index.css",
+        "frontend/src/pages/HomePage.tsx"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "blob-storage@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-16"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-restyle-task-presentation-components-to-match-the-game-like-card-style-taskcard-task-lists-and-task-actions-should-use-compact-badges-accent-chips-and-a-bold-primary-action-button-similar-to-the-reference-design",
+      "featureTitle": "Restyle task presentation components to match the game-like card style: TaskCard, task lists, and task actions should use compact badges, accent chips, and a bold primary action button similar to the reference design.",
+      "files": [
+        "frontend/src/components/tasks/TaskCard.tsx",
+        "frontend/src/components/tasks/TaskFiltersBar.tsx",
+        "frontend/src/index.css",
+        "frontend/src/pages/TasksPage.tsx"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "blob-storage@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-17"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-enhance-celebratory-and-progression-ui-to-feel-more-game-like-restyle-reward-celebration-overlays-progress-bars-and-badges-to-match-the-new-aesthetic-glow-depth-and-a-loot-reward-feel-while-keeping-motion-respectful-of-reduced-motion-settings",
+      "featureTitle": "Enhance celebratory and progression UI to feel more game-like: restyle reward celebration overlays, progress bars, and badges to match the new aesthetic (glow, depth, and a ‘loot/reward’ feel) while keeping motion respectful of reduced-motion settings.",
+      "files": [
+        "frontend/src/components/completions/CompleteTaskFlowDialog.tsx",
+        "frontend/src/components/layout/AppLayout.tsx",
+        "frontend/src/components/rewards/RewardCelebration.tsx",
+        "frontend/src/index.css"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "blob-storage@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-18"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-add-the-required-generated-images-as-static-assets-under-frontend-public-assets-generated-and-reference-them-from-the-ui-where-appropriate-do-not-serve-images-through-the-backend",
+      "featureTitle": "Add the required generated images as static assets under frontend/public/assets/generated and reference them from the UI where appropriate (do not serve images through the backend).",
+      "files": [
+        "frontend/src/components/layout/AppLayout.tsx",
+        "frontend/src/pages/AvatarPage.tsx",
+        "frontend/src/pages/HomePage.tsx",
+        "frontend/src/pages/RewardsPage.tsx"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "blob-storage@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-19"
+      ],
+      "confidence": "high"
+    }
+  ]
+}

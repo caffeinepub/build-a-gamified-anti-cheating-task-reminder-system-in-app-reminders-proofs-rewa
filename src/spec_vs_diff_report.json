@@ -1,0 +1,77 @@
+{
+  "kind": "spec_vs_diff_report",
+  "version": "1.0",
+  "generatedAt": "2026-02-14T20:15:58.320Z",
+  "summary": "The diff implements a new dark, game-like visual theme (CSS tokens + component classes), restyles the main AppLayout into a HUD, and redesigns several pages/components (Home, Tasks, Rewards, Settings, Avatar, Leaderboard, dialogs, TaskCard, reward overlay). However, the required generated image assets are not added in the diff, and not all listed main pages are shown as updated. There are also UI/logic additions that were not requested (e.g., sound/music toggles, synthetic/random reward construction, emojis in user-facing strings).",
+  "missing_requirements": [
+    {
+      "id": "REQ-13",
+      "requirement": "Apply the cohesive game-like theme consistently across all main pages and dialogs (Home, Tasks, Reminders, Rewards, Story, Avatar, Quests, Leaderboard, Insights, History, Settings).",
+      "reason": "The diff shows updates for Home, Tasks, Rewards, Avatar, Leaderboard, Settings and some dialogs/components, but does not provide evidence that Reminders, Story, Quests, Insights, and History pages were updated to the new theme.",
+      "evidence": [
+        "frontend-file-summaries.txt",
+        "frontend/src/pages/HomePage.tsx",
+        "frontend/src/pages/TasksPage.tsx",
+        "frontend/src/pages/RewardsPage.tsx",
+        "frontend/src/pages/AvatarPage.tsx",
+        "frontend/src/pages/LeaderboardPage.tsx",
+        "frontend/src/pages/SettingsPage.tsx"
+      ]
+    },
+    {
+      "id": "REQ-19",
+      "requirement": "Add required generated images as static assets under frontend/public/assets/generated with the exact specified filenames, and reference them from the UI via /assets/generated/ paths (at minimum logo mark used in header).",
+      "reason": "The UI references multiple generated asset paths (logo mark, mascot, avatar stages), but the diff shows no added files under frontend/public/assets/generated and explicitly indicates 'ADDED FILES: none', so the required images are not evidenced as present.",
+      "evidence": [
+        "frontend/src/components/layout/AppLayout.tsx",
+        "frontend/src/pages/HomePage.tsx",
+        "frontend/src/pages/AvatarPage.tsx",
+        "<file-diff> ADDED FILES: none"
+      ]
+    }
+  ],
+  "hallucinated_features": [
+    {
+      "description": "Added Settings toggles for Sound Effects, Background Music, and Motivation Style (local UI state).",
+      "reason": "These preferences are not requested in REQ-13 through REQ-19 and go beyond the UI redesign scope described in the BuildRequest.",
+      "evidence": [
+        "frontend/src/pages/SettingsPage.tsx"
+      ]
+    },
+    {
+      "description": "Complete-task flow fabricates a Reward client-side (fixed XP/coins, random streakBonus) and submits it via useAddReward.",
+      "reason": "BuildRequest explicitly states UI-only with no changes to reward/task logic; generating random reward outcomes in the UI appears to alter reward behavior rather than purely restyling presentation.",
+      "evidence": [
+        "frontend/src/components/completions/CompleteTaskFlowDialog.tsx"
+      ]
+    },
+    {
+      "description": "User-facing emoji strings in the reward celebration and Home greeting (e.g., \"🎉 Level Up!\", \"🔥 Streak Bonus!\", waving hand).",
+      "reason": "The request requires English for user-facing text; emojis are an unrequested stylistic addition and may conflict with a strict interpretation of that constraint.",
+      "evidence": [
+        "frontend/src/components/rewards/RewardCelebration.tsx",
+        "frontend/src/pages/HomePage.tsx"
+      ]
+    }
+  ],
+  "confidence": 0.74,
+  "changed_files": [
+    "frontend-file-summaries.txt",
+    "frontend/src/components/auth/ProfileSetupDialog.tsx",
+    "frontend/src/components/completions/CompleteTaskFlowDialog.tsx",
+    "frontend/src/components/layout/AppLayout.tsx",
+    "frontend/src/components/rewards/RewardCelebration.tsx",
+    "frontend/src/components/tasks/TaskCard.tsx",
+    "frontend/src/components/tasks/TaskEditorDialog.tsx",
+    "frontend/src/components/tasks/TaskFiltersBar.tsx",
+    "frontend/src/index.css",
+    "frontend/src/pages/AvatarPage.tsx",
+    "frontend/src/pages/HomePage.tsx",
+    "frontend/src/pages/LeaderboardPage.tsx",
+    "frontend/src/pages/RewardsPage.tsx",
+    "frontend/src/pages/SettingsPage.tsx",
+    "frontend/src/pages/TasksPage.tsx",
+    "frontend/tailwind.config.js",
+    "project_state.json"
+  ]
+}

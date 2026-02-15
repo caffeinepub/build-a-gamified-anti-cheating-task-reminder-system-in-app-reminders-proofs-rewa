@@ -1,0 +1,244 @@
+{
+  "kind": "implementation_plan",
+  "version": "1.0",
+  "title": "Game-like UI redesign across layout, theme tokens, dashboard, tasks, and reward/progression UI",
+  "requirements": [
+    {
+      "id": "REQ-13",
+      "summary": "Apply a cohesive mobile game-like dark HUD theme across all pages and dialogs using the reference image as the primary style guide.",
+      "acceptanceCriteria": [
+        "All main pages (Home, Tasks, Reminders, Rewards, Story, Avatar, Quests, Leaderboard, Insights, History, Settings) share a cohesive game-like theme (dark background, elevated panels/cards, accent glow/gradient, consistent typography).",
+        "The app no longer presents as a plain website UI (flat white cards, standard dashboard look); it visually matches the uploaded reference style at a glance.",
+        "Theme works in both desktop and mobile layouts without broken spacing, overflow, or unreadable text."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/index.css",
+          "operation": "modify",
+          "description": "Replace the current self-import with the actual Tailwind base/components/utilities + game-like theme layers (global background, glossy surfaces, neon accent glows, subtle depth, typography). This is the primary global styling entry point used by the app. Use shadcn-ui tokens/classes as the baseline so existing components inherit the new aesthetic. Verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/components/auth/ProfileSetupDialog.tsx",
+          "operation": "modify",
+          "description": "Restyle the profile setup dialog container and controls to match the new game-like glossy modal aesthetic (dark elevated panel, accent borders/glow, consistent spacing/typography) without modifying any files under frontend/src/components/ui. Compose existing shadcn-ui Dialog primitives. Verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/components/tasks/TaskEditorDialog.tsx",
+          "operation": "modify",
+          "description": "Restyle the task editor dialog to match the new game-like modal aesthetic (dark elevated panel, neon-accent focus/active states, clearer section hierarchy) while composing existing shadcn-ui components (no edits under frontend/src/components/ui). Verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/pages/TasksPage.tsx",
+          "operation": "modify",
+          "description": "Adjust page-level structure and section wrappers so the Tasks page reads as a game menu screen (HUD-like header block, stacked panels, accent CTA) while keeping existing functionality unchanged. Compose existing shadcn-ui components. Verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/pages/RewardsPage.tsx",
+          "operation": "modify",
+          "description": "Apply the new game-like surfaces, spacing, and accent states to the Rewards page sections/tabs so they visually match the reference at a glance (dark panels, neon highlights, glossy cards). Compose existing shadcn-ui components. Verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/pages/LeaderboardPage.tsx",
+          "operation": "modify",
+          "description": "Restyle the Leaderboard page panels and stat tiles to match the game-like theme (elevated dark panels, subtle gradients, accent glows) while keeping content and behavior intact. Compose existing shadcn-ui components. Verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/pages/SettingsPage.tsx",
+          "operation": "modify",
+          "description": "Restyle Settings page cards/controls to match the game-like dark theme (HUD-like section titles, glossy panels, consistent control spacing) without changing logic. Compose existing shadcn-ui components. Verify the component's usage instructions before implementing."
+        }
+      ]
+    },
+    {
+      "id": "REQ-14",
+      "summary": "Update global styling tokens (CSS variables / Tailwind theme usage) for a dark-first purple/magenta neon game aesthetic with consistent interactive states and chart colors.",
+      "acceptanceCriteria": [
+        "The default look in dark mode matches the reference vibe (dark background, bright accent buttons/badges, visible depth).",
+        "Interactive elements have clear hover/active/focus states that fit the theme (e.g., gentle glow, brighter border, or lift).",
+        "Text contrast meets readability expectations (no low-contrast muted text on dark surfaces in key areas)."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/index.css",
+          "operation": "modify",
+          "description": "Define/adjust CSS variables for a dark-first palette with purple/magenta accents, improved card elevation/borders, and glow-capable ring/border colors; ensure muted/foreground contrast stays readable. Add component-level utility classes (e.g., HUD header, game card, chip/badge styling, progress bar track/fill) that can be composed by pages/components. Verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/tailwind.config.js",
+          "operation": "modify",
+          "description": "Adjust Tailwind theme extension to support the new game aesthetic (e.g., additional shadows, gradients, or animation names used by the redesigned UI) while continuing to rely on existing CSS variables for colors/tokens. Verify the component's usage instructions before implementing."
+        }
+      ]
+    },
+    {
+      "id": "REQ-15",
+      "summary": "Redesign the main layout into a game-like HUD: stylized compact header, game-menu navigation, and stacked panel content area.",
+      "acceptanceCriteria": [
+        "AppLayout header and navigation visually read as a game HUD/menu rather than a standard website navbar/sidebar.",
+        "Navigation active state is clearly game-like (e.g., highlighted pill/tab, glow, or accent frame) and consistent across routes.",
+        "Layout remains responsive: mobile menu still works and feels consistent with the redesigned style."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/layout/AppLayout.tsx",
+          "operation": "modify",
+          "description": "Restyle header/navigation/container into a HUD-like layout: add a dark gradient header, glossy/stroked nav items with neon active state, and a stacked-panel main content area; keep mobile Sheet navigation working and visually consistent. Compose existing shadcn-ui Button/Sheet/Avatar/Progress components (do not edit frontend/src/components/ui). Verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/index.css",
+          "operation": "modify",
+          "description": "Add reusable layout/HUD utility classes used by AppLayout (e.g., HUD header background, nav item active glow, panel containers) to ensure consistent styling across routes. Verify the component's usage instructions before implementing."
+        }
+      ]
+    },
+    {
+      "id": "REQ-16",
+      "summary": "Redesign Home page into a game dashboard with profile panel, level/XP bar, streak, coins, and a prominent Today’s Tasks section with primary CTA.",
+      "acceptanceCriteria": [
+        "Home page presents a top-to-bottom ‘game dashboard’ flow (profile/title, level XP bar, streak, coins, then today’s tasks).",
+        "Primary call-to-action for starting/doing tasks is visually prominent and aligned to the accent color style from the reference.",
+        "Home page uses richer surfaces (gradients, overlays, soft shadows) and avoids plain stats cards that read like a generic admin dashboard."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/pages/HomePage.tsx",
+          "operation": "modify",
+          "description": "Restructure the Home page into the reference-like hierarchy: a player/profile panel (including avatar/mascot accent), a level/XP progress presentation, streak + coins panels, and a prominent 'Today’s Tasks' section with a strong primary CTA. Compose existing shadcn-ui Card/Progress/Badge/Button components and new theme utilities (no edits under frontend/src/components/ui). Verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/index.css",
+          "operation": "modify",
+          "description": "Add dashboard-specific utility classes (e.g., glossy stat tiles, XP bar styling, CTA button glow, section headers) to support the new Home page structure consistently across responsive breakpoints. Verify the component's usage instructions before implementing."
+        }
+      ]
+    },
+    {
+      "id": "REQ-17",
+      "summary": "Restyle task presentation components (TaskCard, lists, actions) into compact game-like cards with themed chips/badges and standout primary action.",
+      "acceptanceCriteria": [
+        "Task cards visually resemble the reference (dark panels, clear badge chips, consistent spacing, and a standout action button).",
+        "Priority/category/duration indicators use themed chips/badges consistent with the new palette.",
+        "No functional regression: complete/edit/delete actions continue to work as before."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/tasks/TaskCard.tsx",
+          "operation": "modify",
+          "description": "Restyle TaskCard to a game-like card: darker glossy panel, compact chips, clearer hierarchy, and a bold primary action button while preserving existing complete/edit/delete behaviors and dialogs. Compose existing shadcn-ui Card/Badge/Button components (no edits under frontend/src/components/ui). Verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/pages/TasksPage.tsx",
+          "operation": "modify",
+          "description": "Adjust task list spacing/section wrappers so the list reads as stacked in-game panels (consistent gaps, section headers, and a strong primary CTA area) without changing filtering logic. Compose existing shadcn-ui components. Verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/components/tasks/TaskFiltersBar.tsx",
+          "operation": "modify",
+          "description": "Restyle filter controls into game-like chips/menu controls consistent with the new palette and hover/focus glow states, while preserving existing filter behavior. Compose existing shadcn-ui primitives (no edits under frontend/src/components/ui). Verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/index.css",
+          "operation": "modify",
+          "description": "Add reusable task UI utility classes (card border glow, chip styles for priority/category/duration, action button emphasis) used by TaskCard and task list sections. Verify the component's usage instructions before implementing."
+        }
+      ]
+    },
+    {
+      "id": "REQ-18",
+      "summary": "Enhance reward celebration and progression UI (overlays, progress bars, badges) to feel like in-game loot/progression, respecting reduced-motion.",
+      "acceptanceCriteria": [
+        "Reward celebration overlay looks like an in-game reward pop-up (not a plain modal) and matches the new theme.",
+        "Animations and effects are present but subtle; reduced-motion preference disables/limits animations per existing global CSS behavior.",
+        "Progress UI (e.g., XP) uses a more game-like bar presentation consistent across the app."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/rewards/RewardCelebration.tsx",
+          "operation": "modify",
+          "description": "Redesign the celebration overlay to resemble an in-game reward pop-up: richer backdrop, glossy reward panel, optional chest/loot framing, and motion-safe animations (use motion-safe / motion-reduce patterns) while keeping the auto-close behavior. Compose existing shadcn-ui Card/Badge components (no edits under frontend/src/components/ui). Verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/components/completions/CompleteTaskFlowDialog.tsx",
+          "operation": "modify",
+          "description": "Ensure the completion flow dialog and its success state match the new progression aesthetic (consistent headers, accent progress/reward framing) and that any animations are motion-safe. Compose existing shadcn-ui Dialog primitives. Verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/components/layout/AppLayout.tsx",
+          "operation": "modify",
+          "description": "Update the XP progress presentation in the layout (and any related badges/labels) to use the more game-like bar/chip styling consistently with the rest of the app. Compose existing shadcn-ui Progress component. Verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/index.css",
+          "operation": "modify",
+          "description": "Add consistent progression styling utilities (game-like progress bars, badge styling, reward panel glow) and ensure reduced-motion rules continue to apply globally. Verify the component's usage instructions before implementing."
+        }
+      ]
+    },
+    {
+      "id": "REQ-19",
+      "summary": "Add required generated images as static assets under frontend/public/assets/generated and reference them from the UI (no backend image serving).",
+      "acceptanceCriteria": [
+        "All required images exist under frontend/public/assets/generated with the exact filenames specified in this build request.",
+        "The UI references these images via static paths (e.g., /assets/generated/...) and does not require backend endpoints for them.",
+        "At minimum, the logo mark is used in the header (already present) and the remaining assets are available for use in relevant pages without broken links."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/public/assets/generated/mascot.dim_1024x1024.png",
+          "operation": "create",
+          "description": "Add the generated static asset at the exact required path/filename so it can be referenced directly by the UI."
+        },
+        {
+          "path": "frontend/public/assets/generated/badges-sprite.dim_2048x2048.png",
+          "operation": "create",
+          "description": "Add the generated static asset at the exact required path/filename so it can be referenced directly by the UI."
+        },
+        {
+          "path": "frontend/public/assets/generated/weekly-chest-closed.dim_1024x1024.png",
+          "operation": "create",
+          "description": "Add the generated static asset at the exact required path/filename so it can be referenced directly by the UI."
+        },
+        {
+          "path": "frontend/public/assets/generated/weekly-chest-open.dim_1024x1024.png",
+          "operation": "create",
+          "description": "Add the generated static asset at the exact required path/filename so it can be referenced directly by the UI."
+        },
+        {
+          "path": "frontend/public/assets/generated/avatar-stages.dim_2048x1024.png",
+          "operation": "create",
+          "description": "Add the generated static asset at the exact required path/filename so it can be referenced directly by the UI."
+        },
+        {
+          "path": "frontend/public/assets/generated/logo-mark.dim_512x512.png",
+          "operation": "create",
+          "description": "Add the generated static asset at the exact required path/filename so it can be referenced directly by the UI."
+        },
+        {
+          "path": "frontend/src/components/layout/AppLayout.tsx",
+          "operation": "modify",
+          "description": "Keep/confirm the header references frontend/public/assets/generated/logo-mark.dim_512x512.png and optionally add subtle HUD framing around the logo to better match the reference while preserving navigation behavior. Compose existing shadcn-ui components. Verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/pages/HomePage.tsx",
+          "operation": "modify",
+          "description": "Reference frontend/public/assets/generated/mascot.dim_1024x1024.png as part of the player/dashboard visual (e.g., profile panel accent) to ensure the asset is exercised and not a broken link. Verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/pages/RewardsPage.tsx",
+          "operation": "modify",
+          "description": "Ensure weekly chest imagery uses frontend/public/assets/generated/weekly-chest-closed.dim_1024x1024.png and incorporate frontend/public/assets/generated/weekly-chest-open.dim_1024x1024.png in the UI where appropriate (e.g., celebratory/preview state) without requiring backend changes. Verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/pages/AvatarPage.tsx",
+          "operation": "modify",
+          "description": "Reference frontend/public/assets/generated/avatar-stages.dim_2048x1024.png within the Avatar page UI (e.g., progression strip/preview) so the asset is available and verified in-app. Compose existing shadcn-ui components. Verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/pages/RewardsPage.tsx",
+          "operation": "modify",
+          "description": "Use frontend/public/assets/generated/badges-sprite.dim_2048x2048.png in the badge collection UI (e.g., sprite-based badge tiles or a preview section) to ensure the asset is available and not a broken link. Compose existing shadcn-ui components. Verify the component's usage instructions before implementing."
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,176 @@
+{
+  "kind": "build_request",
+  "title": "Redesign the entire UI to match the provided game-like reference design",
+  "priority": "normal",
+  "requirements": [
+    {
+      "id": "REQ-13",
+      "text": "Redesign the app’s global visual theme to feel like a mobile game UI (dark, high-contrast, glossy cards, neon accents, soft gradients, and subtle depth), using the uploaded reference image as the primary style guide, and apply it consistently across all pages and dialogs.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-4",
+          "msg-6",
+          "msg-8"
+        ],
+        "quotes": [
+          "It look like website to me not like a game to me",
+          "Redesign the app like it",
+          "Yes go ahead"
+        ]
+      },
+      "acceptanceCriteria": [
+        "All main pages (Home, Tasks, Reminders, Rewards, Story, Avatar, Quests, Leaderboard, Insights, History, Settings) share a cohesive game-like theme (dark background, elevated panels/cards, accent glow/gradient, consistent typography).",
+        "The app no longer presents as a plain website UI (flat white cards, standard dashboard look); it visually matches the uploaded reference style at a glance.",
+        "Theme works in both desktop and mobile layouts without broken spacing, overflow, or unreadable text."
+      ]
+    },
+    {
+      "id": "REQ-14",
+      "text": "Update global styling tokens (CSS variables / Tailwind theme usage) to support the reference-style dark UI: define a dark-first palette with purple/magenta accents, improved card elevation, borders, and glow states; ensure primary/secondary/destructive/chart colors look consistent with the new game aesthetic.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-6"
+        ],
+        "quotes": [
+          "See this design"
+        ]
+      },
+      "acceptanceCriteria": [
+        "The default look in dark mode matches the reference vibe (dark background, bright accent buttons/badges, visible depth).",
+        "Interactive elements have clear hover/active/focus states that fit the theme (e.g., gentle glow, brighter border, or lift).",
+        "Text contrast meets readability expectations (no low-contrast muted text on dark surfaces in key areas)."
+      ]
+    },
+    {
+      "id": "REQ-15",
+      "text": "Redesign the main layout (header + navigation + page container) into a game-like HUD: compact, stylized header; navigation that feels like a game menu; and a content area that uses stacked panels/cards similar to the reference image.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-4",
+          "msg-6"
+        ],
+        "quotes": [
+          "It look like website to me not like a game to me",
+          "See this design"
+        ]
+      },
+      "acceptanceCriteria": [
+        "AppLayout header and navigation visually read as a game HUD/menu rather than a standard website navbar/sidebar.",
+        "Navigation active state is clearly game-like (e.g., highlighted pill/tab, glow, or accent frame) and consistent across routes.",
+        "Layout remains responsive: mobile menu still works and feels consistent with the redesigned style."
+      ]
+    },
+    {
+      "id": "REQ-16",
+      "text": "Redesign the Home page dashboard to match the reference image’s structure and hierarchy: player/profile panel, level/XP progress bar, streak panel, coin panel, and a prominent ‘Today’s Tasks’ section with a strong primary CTA.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-6",
+          "msg-7"
+        ],
+        "quotes": [
+          "See this design",
+          "Redesign the app like it"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Home page presents a top-to-bottom ‘game dashboard’ flow (profile/title, level XP bar, streak, coins, then today’s tasks).",
+        "Primary call-to-action for starting/doing tasks is visually prominent and aligned to the accent color style from the reference.",
+        "Home page uses richer surfaces (gradients, overlays, soft shadows) and avoids plain stats cards that read like a generic admin dashboard."
+      ]
+    },
+    {
+      "id": "REQ-17",
+      "text": "Restyle task presentation components to match the game-like card style: TaskCard, task lists, and task actions should use compact badges, accent chips, and a bold primary action button similar to the reference design.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-4",
+          "msg-6"
+        ],
+        "quotes": [
+          "It look like website to me not like a game to me",
+          "See this design"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Task cards visually resemble the reference (dark panels, clear badge chips, consistent spacing, and a standout action button).",
+        "Priority/category/duration indicators use themed chips/badges consistent with the new palette.",
+        "No functional regression: complete/edit/delete actions continue to work as before."
+      ]
+    },
+    {
+      "id": "REQ-18",
+      "text": "Enhance celebratory and progression UI to feel more game-like: restyle reward celebration overlays, progress bars, and badges to match the new aesthetic (glow, depth, and a ‘loot/reward’ feel) while keeping motion respectful of reduced-motion settings.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-4",
+          "msg-6"
+        ],
+        "quotes": [
+          "It look like website to me not like a game to me",
+          "See this design"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Reward celebration overlay looks like an in-game reward pop-up (not a plain modal) and matches the new theme.",
+        "Animations and effects are present but subtle; reduced-motion preference disables/limits animations per existing global CSS behavior.",
+        "Progress UI (e.g., XP) uses a more game-like bar presentation consistent across the app."
+      ]
+    },
+    {
+      "id": "REQ-19",
+      "text": "Add the required generated images as static assets under frontend/public/assets/generated and reference them from the UI where appropriate (do not serve images through the backend).",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-7"
+        ],
+        "quotes": [
+          "Redesign the app like it"
+        ]
+      },
+      "acceptanceCriteria": [
+        "All required images exist under frontend/public/assets/generated with the exact filenames specified in this build request.",
+        "The UI references these images via static paths (e.g., /assets/generated/...) and does not require backend endpoints for them.",
+        "At minimum, the logo mark is used in the header (already present) and the remaining assets are available for use in relevant pages without broken links."
+      ]
+    }
+  ],
+  "constraints": [
+    "Do not modify files under frontend/src/hooks/useInternetIdentity.ts, frontend/src/hooks/useInternetIdentity.tsx, frontend/src/hooks/useActor.ts, frontend/src/main.tsx, or any files under frontend/src/components/ui (compose them instead).",
+    "Keep the backend as a single Motoko actor; this request is UI-only and must not require backend schema or API changes.",
+    "Use English for any user-facing text."
+  ],
+  "nonGoals": [
+    "Implementing new backend features, new data models, or changing reward/task/reminder logic.",
+    "Adding real-time features (WebSockets) or third-party auth beyond Internet Identity.",
+    "Pixel-perfect duplication of the reference; the goal is to match the overall game-like aesthetic and hierarchy."
+  ],
+  "imageRequirements": {
+    "required": [
+      "Productivity mascot character, friendly but not childish (mascot.dim_1024x1024.png)",
+      "Set of 12 badge icons with a consistent style (badges-sprite.dim_2048x2048.png)",
+      "Weekly reward chest illustration, closed state (weekly-chest-closed.dim_1024x1024.png)",
+      "Weekly reward chest illustration, open state (weekly-chest-open.dim_1024x1024.png)",
+      "Avatar progression set with 6 stages (avatar-stages.dim_2048x1024.png)",
+      "App logo mark, simple and high-contrast (logo-mark.dim_512x512.png)"
+    ],
+    "edits": []
+  },
+  "userProfileUpdate": {
+    "goalsToAdd": [],
+    "goalsToRemove": [],
+    "preferencesToAdd": [],
+    "preferencesToRemove": [],
+    "miscToAdd": [],
+    "miscToRemove": [],
+    "fieldsToSet": {},
+    "fieldsToDelete": []
+  }
+}

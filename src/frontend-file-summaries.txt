@@ -1,0 +1,18 @@
+{
+  "frontend/src/App.tsx": "Main application component with TanStack Router setup, authentication gating, and route definitions for all app pages. Extracts root route component to properly named RootComponent to satisfy React hooks rules.",
+  "frontend/src/components/auth/ProfileSetupDialog.tsx": "Profile setup dialog for first-time users to enter their display name, shown after authentication when no profile exists, styled with game-panel-accent and gradient title.",
+  "frontend/src/components/completions/CompleteTaskFlowDialog.tsx": "Multi-step task completion dialog with game panel styling, proof submission and reflection steps, and reward celebration integration.",
+  "frontend/src/components/tasks/TaskEditorDialog.tsx": "Task editor dialog with game panel styling, gradient title, and form inputs styled with muted backgrounds and primary focus states.",
+  "frontend/src/index.css": "Global styles with dark game-like theme using OKLCH colors (deep navy background, purple/magenta accents), custom game UI component classes (panels, chips, progress bars, HUD elements) defined with explicit CSS properties instead of @apply to avoid opacity modifier issues, and motion-safe animations.",
+  "frontend/tailwind.config.js": "Tailwind configuration extended with game-themed shadows (glow effects), custom animations (shimmer, pulse-glow), and support for the OKLCH color system defined in index.css.",
+  "frontend/src/components/layout/AppLayout.tsx": "Main app layout with game HUD-style header featuring logo with glow effect, compact navigation with active state highlighting, sidebar with player profile panel showing XP progress bar and stats, all styled with game-like glossy panels.",
+  "frontend/src/pages/HomePage.tsx": "Game dashboard home page with hero panel featuring mascot, level/XP bar with gradient fill, stat tiles for streak/coins/tasks, prominent \"Today's Tasks\" section with primary CTA button, and quick action cards for navigation.",
+  "frontend/src/pages/TasksPage.tsx": "Tasks page with game-styled header, filter bar, and task list using game panel components and primary CTA for creating new tasks.",
+  "frontend/src/components/tasks/TaskCard.tsx": "Task card component styled as game panel with hover effects, priority/category chips using game-chip classes, and prominent Complete button using game-cta styling.",
+  "frontend/src/components/tasks/TaskFiltersBar.tsx": "Filter bar component styled as game panel with select dropdowns for priority and category filtering.",
+  "frontend/src/components/rewards/RewardCelebration.tsx": "Reward celebration overlay with animated trophy, gradient title, game chips for XP/coins display, and motion-safe animations for level-up and streak bonuses.",
+  "frontend/src/pages/RewardsPage.tsx": "Rewards page with stat tiles, tabbed interface for badges/history/weekly chest, XP progress bars, and badge collection grid using game panel styling throughout.",
+  "frontend/src/pages/LeaderboardPage.tsx": "Leaderboard page with personal stats grid and weekly progress section, all using game panel components and HUD section headers.",
+  "frontend/src/pages/SettingsPage.tsx": "Settings page with game panel styling, preference controls in muted background tiles, and theme/sound/music toggles.",
+  "frontend/src/pages/AvatarPage.tsx": "Avatar page displaying current avatar with progression stages, using game-panel-accent for featured content and task-card styling for progression list."
+}

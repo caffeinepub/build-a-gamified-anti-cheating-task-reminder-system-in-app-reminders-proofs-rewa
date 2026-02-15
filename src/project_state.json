@@ -1,0 +1,184 @@
+{
+  "schemaVersion": "1.0.0",
+  "projectStateVersion": 5,
+  "summary": "Design and build a complete, motivating, anti-cheating Task Reminder System with smart reminders, completion follow-ups, rewards, gamification, and a distinctly game-like UI/UX (not website-like), delivering full product/UX/design/technical blueprints.",
+  "architectural_notes": [
+    "Scope includes all requested features (no removal/simplification) and should be enhanced beyond the user's initial spec in quality/detail.",
+    "UI/UX direction updated: redesign the full interface toward a game-like presentation (quests/avatar/world framing) rather than a website-like layout, using the provided reference design as the visual baseline."
+  ],
+  "known_issues": [],
+  "isFixRequest": false,
+  "imageRequirements": "## Required Images\n- Productivity mascot character, friendly but not childish (mascot.dim_1024x1024.png)\n- Set of 12 badge icons with a consistent style (badges-sprite.dim_2048x2048.png)\n- Weekly reward chest illustration, closed state (weekly-chest-closed.dim_1024x1024.png)\n- Weekly reward chest illustration, open state (weekly-chest-open.dim_1024x1024.png)\n- Avatar progression set with 6 stages (avatar-stages.dim_2048x1024.png)\n- App logo mark, simple and high-contrast (logo-mark.dim_512x512.png)",
+  "existing_features": [
+    {
+      "id": "feature-implement-internet-identity-sign-in-and-per-user-data-isolation-so-each-signed-in-user-only-sees-and-edits-their-own-tasks-reminders-progress-and-rewards",
+      "title": "Implement Internet Identity sign-in and per-user data isolation so each signed-in user only sees and edits their own tasks, reminders, progress, and rewards.",
+      "reqIds": [
+        "REQ-1"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-create-a-complete-task-model-and-crud-flows-users-can-create-edit-archive-tasks-with-title-description-category-tags-priority-level-recurrence-daily-weekly-custom-days-target-time-s-grace-period-and-an-optional-estimated-duration-for-timed-sessions",
+      "title": "Create a complete task model and CRUD flows: users can create/edit/archive tasks with title, description, category/tags, priority level, recurrence (daily/weekly/custom days), target time(s), grace period, and an optional estimated duration for timed sessions.",
+      "reqIds": [
+        "REQ-2"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-implement-in-app-smart-reminder-scheduling-and-re-reminders-no-push-sms-email-compute-due-overdue-tasks-on-the-backend-and-drive-an-in-app-reminder-center-that-triggers-while-the-app-is-open-via-periodic-polling-and-local-timers-support-escalating-re-reminders-when-a-reminder-is-ignored",
+      "title": "Implement in-app smart reminder scheduling and re-reminders (no push/SMS/email): compute due/overdue tasks on the backend and drive an in-app reminder center that triggers while the app is open via periodic polling and local timers; support escalating re-reminders when a reminder is ignored.",
+      "reqIds": [
+        "REQ-3"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-completion-follow-up-flows-that-require-proof-of-completion-user-must-submit-at-least-one-proof-type-per-completion-text-note-checklist-confirmation-timed-session-log-or-photo-upload-and-answer-reflection-questions-after-completion-if-skipped-automatically-offer-reschedule-options",
+      "title": "Add completion follow-up flows that require proof of completion: user must submit at least one proof type per completion (text note, checklist confirmation, timed session log, or photo upload) and answer reflection questions after completion; if skipped, automatically offer reschedule options.",
+      "reqIds": [
+        "REQ-4"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-implement-a-reward-economy-xp-coins-levels-streak-bonuses-badges-unlockable-skins-themes-weekly-reward-chest-and-long-term-achievements-make-rewards-feel-immediate-and-celebratory-with-micro-animations-and-optional-sound-effects",
+      "title": "Implement a reward economy: XP, coins, levels, streak bonuses, badges, unlockable skins/themes, weekly reward chest, and long-term achievements; make rewards feel immediate and celebratory with micro-animations and optional sound effects.",
+      "reqIds": [
+        "REQ-5"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-gamification-layers-story-mode-progression-with-chapters-avatar-growth-tied-to-productivity-daily-quests-periodic-boss-challenges-and-an-optional-private-friends-leaderboard-implemented-without-real-time-features",
+      "title": "Add gamification layers: story-mode progression with chapters, avatar growth tied to productivity, daily quests + periodic “boss challenges”, and an optional private/friends leaderboard implemented without real-time features.",
+      "reqIds": [
+        "REQ-6"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-implement-an-anti-cheating-system-detect-suspicious-completion-patterns-e-g-repeated-instant-completions-identical-proof-text-excessive-streak-saving-behavior-reduce-rewards-for-flagged-events-require-stronger-evidence-when-suspicion-is-high-and-show-gentle-honesty-prompts",
+      "title": "Implement an anti-cheating system: detect suspicious completion patterns (e.g., repeated instant completions, identical proof text, excessive streak-saving behavior), reduce rewards for flagged events, require stronger evidence when suspicion is high, and show gentle honesty prompts.",
+      "reqIds": [
+        "REQ-7"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-provide-ai-suggestions-based-on-habits-and-ai-encouragement-messages-without-external-llm-services-implement-a-local-rule-based-insight-engine-that-analyzes-completion-times-streaks-skips-and-procrastination-patterns-to-suggest-optimal-schedules-habit-stacking-opportunities-and-personalized-motivation-style-generate-encouragement-messages-from-templated-variants-with-personalization-tokens",
+      "title": "Provide “AI suggestions based on habits” and “AI encouragement messages” without external LLM services: implement a local rule-based insight engine that analyzes completion times, streaks, skips, and procrastination patterns to suggest optimal schedules, habit stacking opportunities, and personalized motivation style; generate encouragement messages from templated variants with personalization tokens.",
+      "reqIds": [
+        "REQ-8"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-build-onboarding-and-daily-usage-flows-initial-onboarding-collects-goals-preferred-reminder-windows-motivation-style-theme-choice-and-audio-preferences-daily-home-screen-shows-today-s-plan-due-reminders-quests-progress-charts-and-quick-actions",
+      "title": "Build onboarding and daily usage flows: initial onboarding collects goals, preferred reminder windows, motivation style, theme choice, and audio preferences; daily home screen shows today’s plan, due reminders, quests, progress charts, and quick actions.",
+      "reqIds": [
+        "REQ-9"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-design-and-enforce-a-cohesive-fun-but-professional-visual-theme-not-blue-purple-by-default-define-color-palette-typography-spacing-component-styling-micro-interactions-and-dark-mode-apply-consistently-across-all-screens",
+      "title": "Design and enforce a cohesive, fun-but-professional visual theme (not blue/purple by default): define color palette, typography, spacing, component styling, micro-interactions, and dark mode; apply consistently across all screens.",
+      "reqIds": [
+        "REQ-10"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-a-full-design-deliverables-section-inside-the-app-repository-documentation-app-structure-screens-flow-ui-layout-descriptions-color-palette-fonts-sound-music-style-guide-mascot-character-concept-icon-badge-concepts-and-animation-concepts-written-in-english-and-detailed-enough-for-another-developer-to-implement-consistently",
+      "title": "Add a full “design deliverables” section inside the app repository documentation: app structure (screens/flow), UI layout descriptions, color palette & fonts, sound/music style guide, mascot/character concept, icon/badge concepts, and animation concepts, written in English and detailed enough for another developer to implement consistently.",
+      "reqIds": [
+        "REQ-12"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-redesign-the-app-s-global-visual-theme-to-feel-like-a-mobile-game-ui-dark-high-contrast-glossy-cards-neon-accents-soft-gradients-and-subtle-depth-using-the-uploaded-reference-image-as-the-primary-style-guide-and-apply-it-consistently-across-all-pages-and-dialogs",
+      "title": "Redesign the app’s global visual theme to feel like a mobile game UI (dark, high-contrast, glossy cards, neon accents, soft gradients, and subtle depth), using the uploaded reference image as the primary style guide, and apply it consistently across all pages and dialogs.",
+      "reqIds": [
+        "REQ-13"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-update-global-styling-tokens-css-variables-tailwind-theme-usage-to-support-the-reference-style-dark-ui-define-a-dark-first-palette-with-purple-magenta-accents-improved-card-elevation-borders-and-glow-states-ensure-primary-secondary-destructive-chart-colors-look-consistent-with-the-new-game-aesthetic",
+      "title": "Update global styling tokens (CSS variables / Tailwind theme usage) to support the reference-style dark UI: define a dark-first palette with purple/magenta accents, improved card elevation, borders, and glow states; ensure primary/secondary/destructive/chart colors look consistent with the new game aesthetic.",
+      "reqIds": [
+        "REQ-14"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-redesign-the-main-layout-header-navigation-page-container-into-a-game-like-hud-compact-stylized-header-navigation-that-feels-like-a-game-menu-and-a-content-area-that-uses-stacked-panels-cards-similar-to-the-reference-image",
+      "title": "Redesign the main layout (header + navigation + page container) into a game-like HUD: compact, stylized header; navigation that feels like a game menu; and a content area that uses stacked panels/cards similar to the reference image.",
+      "reqIds": [
+        "REQ-15"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-redesign-the-home-page-dashboard-to-match-the-reference-image-s-structure-and-hierarchy-player-profile-panel-level-xp-progress-bar-streak-panel-coin-panel-and-a-prominent-today-s-tasks-section-with-a-strong-primary-cta",
+      "title": "Redesign the Home page dashboard to match the reference image’s structure and hierarchy: player/profile panel, level/XP progress bar, streak panel, coin panel, and a prominent ‘Today’s Tasks’ section with a strong primary CTA.",
+      "reqIds": [
+        "REQ-16"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-restyle-task-presentation-components-to-match-the-game-like-card-style-taskcard-task-lists-and-task-actions-should-use-compact-badges-accent-chips-and-a-bold-primary-action-button-similar-to-the-reference-design",
+      "title": "Restyle task presentation components to match the game-like card style: TaskCard, task lists, and task actions should use compact badges, accent chips, and a bold primary action button similar to the reference design.",
+      "reqIds": [
+        "REQ-17"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-enhance-celebratory-and-progression-ui-to-feel-more-game-like-restyle-reward-celebration-overlays-progress-bars-and-badges-to-match-the-new-aesthetic-glow-depth-and-a-loot-reward-feel-while-keeping-motion-respectful-of-reduced-motion-settings",
+      "title": "Enhance celebratory and progression UI to feel more game-like: restyle reward celebration overlays, progress bars, and badges to match the new aesthetic (glow, depth, and a ‘loot/reward’ feel) while keeping motion respectful of reduced-motion settings.",
+      "reqIds": [
+        "REQ-18"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-the-required-generated-images-as-static-assets-under-frontend-public-assets-generated-and-reference-them-from-the-ui-where-appropriate-do-not-serve-images-through-the-backend",
+      "title": "Add the required generated images as static assets under frontend/public/assets/generated and reference them from the UI where appropriate (do not serve images through the backend).",
+      "reqIds": [
+        "REQ-19"
+      ],
+      "version": 1
+    }
+  ],
+  "new_feature_requests": [
+    {
+      "id": "AR-1",
+      "summary": "Create end-to-end Task Reminder System blueprint and build plan including smart reminders, completion proof/follow-ups, reward & gamification loops, anti-cheating, psychology-based motivation, design deliverables, and technical architecture (DB/API/algorithms/stack).",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-12",
+      "summary": "Implement backend persistence, API surface, and data structures in a single Motoko actor for: users, tasks, schedules, reminder events, completions (with proofs/reflections), rewards economy, quests, story progress, avatar state, anti-cheat telemetry, and settings.",
+      "reqIds": [
+        "REQ-11"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "AR-13",
+      "summary": "Redesign the entire app UI to match a game-like style (based on the provided reference design), so it feels like a game rather than a website.",
+      "reqIds": [],
+      "status": "in_progress"
+    }
+  ],
+  "gameProjectType": "none",
+  "projectName": "Build a gamified anti-cheating Task Reminder System (in-app reminders, proofs, rewards, quests)",
+  "clarification_mode": "instant",
+  "clarification_rounds": 0
+}
